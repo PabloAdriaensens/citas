@@ -1,6 +1,22 @@
 import React, { useState, Fragment } from 'react';
 
 function Formulario() {
+
+  const [cita, actualizarCita] = useState({
+    mascota: '',
+    propietario: '',
+    fecha: '',
+    hora: '',
+    sintomas: ''
+  });
+
+  const actualizarState = e => {
+    actualizarCita({
+      ...cita,
+      [e.target.name] : e.target.value
+    })
+  }
+
   return (
     <Fragment>
       <h2> Crear Cita </h2>
@@ -12,6 +28,7 @@ function Formulario() {
           name="mascota"
           className="u-full-anchura"
           placeholder="número de Mascota"
+          onChange={actualizarState}
         />
 
         <label> Número de dueño </ label>

@@ -8,7 +8,7 @@ function Cita({ cita, index, eliminarCita }) {
       <p>Fecha: <span>{cita.fecha}</span></p>
       <p>Hora: <span>{cita.hora}</span></p>
       <p>Sintomas: <span>{cita.sintomas}</span></p>
-      <button 
+      <button
         onClick={() => eliminarCita(index)}
         type="button" className="button eliminar u-full-width">Eliminar X</button>
     </div>
@@ -129,6 +129,9 @@ function App() {
     guardarCita(nuevasCitas);
   }
 
+  // Cargar condicionalmente un Título
+  const titulo = Object.keys(citas).length === 0 ? 'No Hay Citas' : 'Administrar Las Citas Aquí';
+
   return (
     <Fragment>
       <h1>Administrador de Pacientes</h1>
@@ -139,6 +142,7 @@ function App() {
               crearCita={crearCita} />
           </div>
           <div className="one-half">
+            <h2>{titulo}</h2>
             {citas.map((cita, index) => (
               <Cita
                 key={index}

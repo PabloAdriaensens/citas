@@ -13,55 +13,61 @@ function Formulario() {
   const actualizarState = e => {
     actualizarCita({
       ...cita,
-      [e.target.name] : e.target.value
+      [e.target.name]: e.target.value
     })
   }
 
+  console.log(cita)
+
   return (
     <Fragment>
-      <h2> Crear Cita </h2>
-
+      <h2>Crear Cita</h2>
       <form>
-        <label> Número Mascota </label>
+        <label>Nombre Mascota</label>
         <input
           type="text"
           name="mascota"
-          className="u-full-anchura"
-          placeholder="número de Mascota"
+          className="u-full-width"
+          placeholder="Nombre Mascota"
           onChange={actualizarState}
         />
 
-        <label> Número de dueño </ label>
+        <label>Nombre Dueño</label>
         <input
           type="text"
-          name="Propietario"
-          className="u-full-anchura"
-          placeholder="Número de Dueño de la Mascota"
+          name="propietario"
+          className="u-full-width"
+          placeholder="Nombre Dueño de la Mascota"
+          onChange={actualizarState}
         />
 
-        <label> Fecha </ label>
+        <label>Fecha</label>
         <input
-          type="fecha"
-          className="u-full-anchura"
-          name="Fecha"
+          type="date"
+          className="u-full-width"
+          name="fecha"
+          onChange={actualizarState}
         />
 
-        <label> Hora </ label>
+        <label>Hora</label>
         <input
-          type="tiempo"
-          className="u-full-anchura"
+          type="time"
+          className="u-full-width"
           name="hora"
+          onChange={actualizarState}
         />
 
-        <label> sintomas </ label>
+        <label>Sintomas</label>
         <textarea
-          className="u-full-anchura"
+          className="u-full-width"
           name="sintomas"
-        > </textarea>
+          onChange={actualizarState}
+        ></textarea>
 
-        <button type="submit" className="button-primary u-full-width"> Agregar </ button>
-      </ form>
-    </ Fragment>
+        <button type="submit" className="button-primary u-full-width">Agregar</button>
+      </form>
+    </Fragment>
+
   )
 }
 
